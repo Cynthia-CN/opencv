@@ -21,12 +21,14 @@ if((TARGET Threads::Threads OR HAVE_PTHREAD OR MSVC OR APPLE) AND NOT OPENCV_EXA
 endif()
 
 add_subdirectory(cpp)
+#[[
 add_subdirectory(java/tutorial_code)
 add_subdirectory(dnn)
 add_subdirectory(gpu)
 add_subdirectory(tapi)
 add_subdirectory(opencl)
-if(WIN32 AND HAVE_DIRECTX)
+add_subdirectory(basic)]]
+#[[if(WIN32 AND HAVE_DIRECTX)
   add_subdirectory(directx)
 endif()
 if((NOT ANDROID) AND HAVE_OPENGL)
@@ -44,7 +46,7 @@ endif()
 if(INSTALL_PYTHON_EXAMPLES)
   add_subdirectory(python)
 endif()
-
+]]
 ocv_install_example_src("." CMakeLists.txt samples_utils.cmake)
 if(INSTALL_C_EXAMPLES)
   install(DIRECTORY data DESTINATION "${OPENCV_SAMPLES_SRC_INSTALL_PATH}" COMPONENT samples_data)
